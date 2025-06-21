@@ -109,39 +109,82 @@ body {
   background: #fff;
   border-radius: 1px;
   display: block;
-  transition: 0.3s;
+  transition: 1.3s;
 }
 
 /* === RESPONSIVE === */
-@media (max-width: 900px) {
+   @media (max-width: 900px) {
   .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 6%;
-    left: auto;
-    background: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: none;
+    background: rgba(255, 255, 255, 0.05); /* ✅ light transparent base */
+    padding: 24px 28px;
+    border-radius: 16px;
+    width: auto;
+    display: flex;
     flex-direction: column;
-    gap: 25px;
-    padding: 20px;
-    border-radius: 8px;
-    display: none;
-    width: 250px;
-    transition: all 0.3s ease;
+    gap: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* ✅ subtle shadow */
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    backdrop-filter: blur(12px); /* ✅ GLASS EFFECT */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* ✅ gradient-like border */
   }
 
   .nav-links ul {
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
+  }
+
+  .nav-links ul li a {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
   }
 
   .nav-links.show {
-    display: flex;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 
   .menu-icon {
     display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .menu-icon span {
+    height: 2px;
+    width: 24px;
+    background: white;
+    display: block;
+    border-radius: 1px;
   }
 }
+
+
+
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .menu-icon span {
+    height: 2px;
+    width: 24px;
+    background: white;
+    display: block;
+    border-radius: 1px;
+  }
+
 
 /* Hero Section */
 .hero-section {

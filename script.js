@@ -31,7 +31,26 @@
 //  navbar
 
 
-  function toggleMenu() {
+   function toggleMenu() {
     const nav = document.getElementById('navLinks');
     nav.classList.toggle('show');
+
+    if (nav.classList.contains('show')) {
+      document.addEventListener('click', outsideClickHandler);
+    } else {
+      document.removeEventListener('click', outsideClickHandler);
+    }
+
+    function outsideClickHandler(e) {
+      const menuIcon = document.querySelector('.menu-icon');
+
+      if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
+        nav.classList.remove('show');
+        document.removeEventListener('click', outsideClickHandler);
+      }
+    }
   }
+
+
+  // responsive
+  
